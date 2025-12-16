@@ -35,14 +35,32 @@ limitations under the License.
 
 > Apply a plane rotation with real cosine and complex sine to a pair of single-precision complex floating-point vectors.
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/lapack-base-crot
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import crot from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-crot@deno/mod.js';
+var crot = require( '@stdlib/lapack-base-crot' );
 ```
 
 #### crot( N, cx, strideCX, cy, strideCY, c, s )
@@ -50,10 +68,8 @@ import crot from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-crot@deno/mo
 Applies a plane rotation with real cosine and complex sine.
 
 ```javascript
-import Complex64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-complex64@deno/mod.js';
-import Complex64 from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float32-ctor@deno/mod.js';
-import realf from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float32-real@deno/mod.js';
-import imagf from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float32-imag@deno/mod.js';
+var Complex64Array = require( '@stdlib/array-complex64' );
+var Complex64 = require( '@stdlib/complex-float32-ctor' );
 
 var cx = new Complex64Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0 ] );
 var cy = new Complex64Array( [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ] );
@@ -62,22 +78,10 @@ var s = new Complex64( 0.0, 0.75 );
 crot( cx.length, cx, 1, cy, 1, 1.25, s );
 
 var z = cy.get( 0 );
-// returns <Complex64>
-
-var re = realf( z );
-// returns ~-1.5
-
-var im = imagf( z );
-// returns ~0.75
+// returns <Complex64>[ ~-1.5, ~0.75 ]
 
 z = cx.get( 0 );
-// returns <Complex64>
-
-re = realf( z );
-// returns ~1.25
-
-im = imagf( z );
-// returns ~2.5
+// returns <Complex64>[ ~1.25, ~2.5 ]
 ```
 
 The function has the following parameters:
@@ -91,10 +95,8 @@ The function has the following parameters:
 The `N` and stride parameters determine how values from `cx` and `cy` are accessed at runtime. For example, to apply a plane rotation to every other element,
 
 ```javascript
-import Complex64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-complex64@deno/mod.js';
-import Complex64 from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float32-ctor@deno/mod.js';
-import realf from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float32-real@deno/mod.js';
-import imagf from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float32-imag@deno/mod.js';
+var Complex64Array = require( '@stdlib/array-complex64' );
+var Complex64 = require( '@stdlib/complex-float32-ctor' );
 
 var cx = new Complex64Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0 ] );
 var cy = new Complex64Array( [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ] );
@@ -103,22 +105,10 @@ var s = new Complex64( 0.0, 0.75 );
 crot( 2, cx, 2, cy, 2, 1.25, s );
 
 var z = cy.get( 0 );
-// returns <Complex64>
-
-var re = realf( z );
-// returns ~-1.5
-
-var im = imagf( z );
-// returns ~0.75
+// returns <Complex64>[ ~-1.5, ~0.75 ]
 
 z = cx.get( 0 );
-// returns <Complex64>
-
-re = realf( z );
-// returns ~1.25
-
-im = imagf( z );
-// returns ~2.5
+// returns <Complex64>[ ~1.25, ~2.5 ]
 ```
 
 Note that indexing is relative to the first index. To introduce an offset, use [`typed array`][mdn-typed-array] views.
@@ -126,10 +116,8 @@ Note that indexing is relative to the first index. To introduce an offset, use [
 <!-- eslint-disable stdlib/capitalized-comments -->
 
 ```javascript
-import Complex64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-complex64@deno/mod.js';
-import Complex64 from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float32-ctor@deno/mod.js';
-import realf from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float32-real@deno/mod.js';
-import imagf from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float32-imag@deno/mod.js';
+var Complex64Array = require( '@stdlib/array-complex64' );
+var Complex64 = require( '@stdlib/complex-float32-ctor' );
 
 // Initial arrays...
 var cx0 = new Complex64Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0 ] );
@@ -144,22 +132,10 @@ var s = new Complex64( 0.0, 0.75 );
 crot( 2, cx1, -2, cy1, 1, 1.25, s );
 
 var z = cy0.get( 2 );
-// returns <Complex64>
-
-var re = realf( z );
-// returns ~-6
-
-var im = imagf( z );
-// returns ~5.25
+// returns <Complex64>[ ~-6.0, ~5.25 ]
 
 z = cx0.get( 3 );
-// returns <Complex64>
-
-re = realf( z );
-// returns ~8.75
-
-im = imagf( z );
-// returns ~10
+// returns <Complex64>[ ~8.75, ~10.0 ]
 ```
 
 #### crot.ndarray( N, cx, strideCX, offsetCX, cy, strideCY, offsetCY, c, s )
@@ -167,10 +143,8 @@ im = imagf( z );
 Applies a plane rotation with real cosine and complex sine using alternative indexing semantics.
 
 ```javascript
-import Complex64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-complex64@deno/mod.js';
-import Complex64 from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float32-ctor@deno/mod.js';
-import realf from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float32-real@deno/mod.js';
-import imagf from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float32-imag@deno/mod.js';
+var Complex64Array = require( '@stdlib/array-complex64' );
+var Complex64 = require( '@stdlib/complex-float32-ctor' );
 
 var cx = new Complex64Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 ] );
 var cy = new Complex64Array( [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ] );
@@ -179,22 +153,10 @@ var s = new Complex64( 0.0, 0.75 );
 crot.ndarray( cx.length, cx, 1, 0, cy, 1, 0, 1.25, s );
 
 var z = cy.get( 0 );
-// returns <Complex64>
-
-var re = realf( z );
-// returns ~-1.5
-
-var im = imagf( z );
-// returns ~0.75
+// returns <Complex64>[ ~-1.5, ~0.75 ]
 
 z = cx.get( 0 );
-// returns <Complex64>
-
-re = realf( z );
-// returns ~1.25
-
-im = imagf( z );
-// returns ~2.5
+// returns <Complex64>[ ~1.25, ~2.5 ]
 ```
 
 The function has the following additional parameters:
@@ -205,10 +167,8 @@ The function has the following additional parameters:
 While [`typed array`][mdn-typed-array] views mandate a view offset based on the underlying buffer, the offset parameters support indexing semantics based on starting indices. For example, to apply a plane rotation to every other element starting from the second element,
 
 ```javascript
-import Complex64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-complex64@deno/mod.js';
-import Complex64 from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float32-ctor@deno/mod.js';
-import realf from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float32-real@deno/mod.js';
-import imagf from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float32-imag@deno/mod.js';
+var Complex64Array = require( '@stdlib/array-complex64' );
+var Complex64 = require( '@stdlib/complex-float32-ctor' );
 
 var cx = new Complex64Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0 ] );
 var cy = new Complex64Array( [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ] );
@@ -217,22 +177,10 @@ var s = new Complex64( 0.0, 0.75 );
 crot.ndarray( 2, cx, 2, 1, cy, 2, 1, 1.25, s );
 
 var z = cy.get( 3 );
-// returns <Complex64>
-
-var re = realf( z );
-// returns ~-6.0
-
-var im = imagf( z );
-// returns ~5.25
+// returns <Complex64>[ ~-6.0, ~5.25 ]
 
 z = cx.get( 1 );
-// returns <Complex64>
-
-re = realf( z );
-// returns ~3.75
-
-im = imagf( z );
-// returns ~5.0
+// returns <Complex64>[ ~3.75, ~5.0 ]
 ```
 
 </section>
@@ -257,13 +205,13 @@ im = imagf( z );
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform@deno/mod.js';
-import filledarrayBy from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-filled-by@deno/mod.js';
-import Complex64 from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float32-ctor@deno/mod.js';
-import ccopy from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-ccopy@deno/mod.js';
-import zeros from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-zeros@deno/mod.js';
-import logEach from 'https://cdn.jsdelivr.net/gh/stdlib-js/console-log-each@deno/mod.js';
-import crot from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-crot@deno/mod.js';
+var discreteUniform = require( '@stdlib/random-base-discrete-uniform' );
+var filledarrayBy = require( '@stdlib/array-filled-by' );
+var Complex64 = require( '@stdlib/complex-float32-ctor' );
+var ccopy = require( '@stdlib/blas-base-ccopy' );
+var zeros = require( '@stdlib/array-zeros' );
+var logEach = require( '@stdlib/console-log-each' );
+var crot = require( '@stdlib/lapack-base-crot' );
 
 function rand() {
     return new Complex64( discreteUniform( 0, 10 ), discreteUniform( -5, 5 ) );
@@ -306,7 +254,7 @@ logEach( '(%s,%s) => (%s,%s)', cxc, cyc, cx, cy );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -375,7 +323,7 @@ Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
 
 [mdn-typed-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
-[@stdlib/array/complex64]: https://github.com/stdlib-js/array-complex64/tree/deno
+[@stdlib/array/complex64]: https://github.com/stdlib-js/array-complex64
 
 </section>
 
