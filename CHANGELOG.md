@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2025-09-29)
+## Unreleased (2025-12-16)
 
 <section class="features">
 
@@ -22,6 +22,7 @@
 
 <details>
 
+-   [`ef3e8f4`](https://github.com/stdlib-js/stdlib/commit/ef3e8f448774d1ad3c657c2b506d0736adf01cee) - **docs:** improve doctests for complex number instances in `lapack/base/crot` [(#8953)](https://github.com/stdlib-js/stdlib/pull/8953) _(by Prajjwal Bajpai, Athan Reines)_
 -   [`b7c2031`](https://github.com/stdlib-js/stdlib/commit/b7c20312491bdcf54ffc681e5fe489b9ba3d059c) - **docs:** clean-up TSDoc declaration comments _(by Philipp Burckhardt)_
 -   [`5a704e5`](https://github.com/stdlib-js/stdlib/commit/5a704e58579ef5c9ac7599e77c48d8ee07a2fdb5) - **docs:** fix requires in example code _(by Philipp Burckhardt)_
 -   [`9267e0f`](https://github.com/stdlib-js/stdlib/commit/9267e0f2c35f15ccb49402d319c33c2166f96a03) - **docs:** fix examples _(by Athan Reines)_
@@ -37,10 +38,11 @@
 
 ### Contributors
 
-A total of 2 people contributed to this release. Thank you to the following contributors:
+A total of 3 people contributed to this release. Thank you to the following contributors:
 
 -   Athan Reines
 -   Philipp Burckhardt
+-   Prajjwal Bajpai
 
 </section>
 
