@@ -42,7 +42,7 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import crot from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-crot@deno/mod.js';
+import crot from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-crot@v0.1.0-deno/mod.js';
 ```
 
 #### crot( N, cx, strideCX, cy, strideCY, c, s )
@@ -193,7 +193,7 @@ import Complex64 from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float32-cto
 import ccopy from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-ccopy@deno/mod.js';
 import zeros from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-zeros@deno/mod.js';
 import logEach from 'https://cdn.jsdelivr.net/gh/stdlib-js/console-log-each@deno/mod.js';
-import crot from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-crot@deno/mod.js';
+import crot from 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-crot@v0.1.0-deno/mod.js';
 
 function rand() {
     return new Complex64( discreteUniform( 0, 10 ), discreteUniform( -5, 5 ) );
