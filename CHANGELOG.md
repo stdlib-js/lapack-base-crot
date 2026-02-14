@@ -2,6 +2,40 @@
 
 > Package changelog.
 
+<section class="release" id="unreleased">
+
+## Unreleased (2026-02-14)
+
+<section class="commits">
+
+### Commits
+
+<details>
+
+-   [`143c2b8`](https://github.com/stdlib-js/stdlib/commit/143c2b82010dee7aeff548e4cfdd946fe410b8ee) - **bench:** refactor to use string interpolation in `lapack/base/crot` [(#10094)](https://github.com/stdlib-js/stdlib/pull/10094) _(by Prajjwal Bajpai)_
+
+</details>
+
+</section>
+
+<!-- /.commits -->
+
+<section class="contributors">
+
+### Contributors
+
+A total of 1 person contributed to this release. Thank you to this contributor:
+
+-   Prajjwal Bajpai
+
+</section>
+
+<!-- /.contributors -->
+
+</section>
+
+<!-- /.release -->
+
 <section class="release" id="v0.1.1">
 
 ## 0.1.1 (2026-02-08)
