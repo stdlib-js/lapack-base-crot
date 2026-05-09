@@ -35,38 +35,32 @@ limitations under the License.
 
 > Apply a plane rotation with real cosine and complex sine to a pair of single-precision complex floating-point vectors.
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/lapack-base-crot
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-crot = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-crot@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var crot = require( 'path/to/vendor/umd/lapack-base-crot/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-crot@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.crot;
-})();
-</script>
+var crot = require( '@stdlib/lapack-base-crot' );
 ```
 
 #### crot( N, cx, strideCX, cy, strideCY, c, s )
@@ -82,12 +76,8 @@ var cy = new Complex64Array( [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ] );
 var s = new Complex64( 0.0, 0.75 );
 
 crot( cx.length, cx, 1, cy, 1, 1.25, s );
-
-var z = cy.get( 0 );
-// returns <Complex64>[ ~-1.5, ~0.75 ]
-
-z = cx.get( 0 );
-// returns <Complex64>[ ~1.25, ~2.5 ]
+// cy => <Complex64Array>[ ~-1.5, ~0.75, ~-3.0, ~2.25, ~-4.5, ~3.75, ~-6.0, ~5.25 ]
+// cx => <Complex64Array>[ ~1.25, ~2.5, ~3.75, ~5.0, ~6.25, ~7.5, ~8.75, ~10.0 ]
 ```
 
 The function has the following parameters:
@@ -109,12 +99,8 @@ var cy = new Complex64Array( [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ] );
 var s = new Complex64( 0.0, 0.75 );
 
 crot( 2, cx, 2, cy, 2, 1.25, s );
-
-var z = cy.get( 0 );
-// returns <Complex64>[ ~-1.5, ~0.75 ]
-
-z = cx.get( 0 );
-// returns <Complex64>[ ~1.25, ~2.5 ]
+// cy => <Complex64Array>[ ~-1.5, ~0.75, 0.0, 0.0, ~-4.5, ~3.75, 0.0, 0.0 ]
+// cx => <Complex64Array>[ ~1.25, ~2.5, 3.0, 4.0, ~6.25, ~7.5, 7.0, 8.0 ]
 ```
 
 Note that indexing is relative to the first index. To introduce an offset, use [`typed array`][mdn-typed-array] views.
@@ -136,12 +122,8 @@ var cy1 = new Complex64Array( cy0.buffer, cy0.BYTES_PER_ELEMENT*2 ); // start at
 var s = new Complex64( 0.0, 0.75 );
 
 crot( 2, cx1, -2, cy1, 1, 1.25, s );
-
-var z = cy0.get( 2 );
-// returns <Complex64>[ ~-6.0, ~5.25 ]
-
-z = cx0.get( 3 );
-// returns <Complex64>[ ~8.75, ~10.0 ]
+// cy0 => <Complex64Array>[ 0.0, 0.0, 0.0, 0.0, ~-6.0, ~5.25, ~-3.0, ~2.25 ]
+// cx0 => <Complex64Array>[ 1.0, 2.0, ~3.75, ~5.0, 5.0, 6.0, ~8.75, ~10.0 ]
 ```
 
 #### crot.ndarray( N, cx, strideCX, offsetCX, cy, strideCY, offsetCY, c, s )
@@ -157,12 +139,8 @@ var cy = new Complex64Array( [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ] );
 var s = new Complex64( 0.0, 0.75 );
 
 crot.ndarray( cx.length, cx, 1, 0, cy, 1, 0, 1.25, s );
-
-var z = cy.get( 0 );
-// returns <Complex64>[ ~-1.5, ~0.75 ]
-
-z = cx.get( 0 );
-// returns <Complex64>[ ~1.25, ~2.5 ]
+// cy => <Complex64Array>[ ~-1.5, ~0.75, ~-3.0, ~2.25, ~-4.5, ~3.75 ]
+// cx => <Complex64Array>[ ~1.25, ~2.5, ~3.75, ~5.0, ~6.25, ~7.5 ]
 ```
 
 The function has the following additional parameters:
@@ -181,12 +159,8 @@ var cy = new Complex64Array( [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ] );
 var s = new Complex64( 0.0, 0.75 );
 
 crot.ndarray( 2, cx, 2, 1, cy, 2, 1, 1.25, s );
-
-var z = cy.get( 3 );
-// returns <Complex64>[ ~-6.0, ~5.25 ]
-
-z = cx.get( 1 );
-// returns <Complex64>[ ~3.75, ~5.0 ]
+// cy => <Complex64Array>[ 0.0, 0.0, ~-3.0, ~2.25, 0.0, 0.0, ~-6.0, ~5.25 ]
+// cx => <Complex64Array>[ 1.0, 2.0, ~3.75, ~5.0, 5.0, 6.0, ~8.75, ~10.0 ]
 ```
 
 </section>
@@ -210,19 +184,14 @@ z = cx.get( 1 );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-filled-by@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/complex-float32-ctor@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/blas-base-ccopy@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-zeros@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/console-log-each@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-crot@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var discreteUniform = require( '@stdlib/random-base-discrete-uniform' );
+var filledarrayBy = require( '@stdlib/array-filled-by' );
+var Complex64 = require( '@stdlib/complex-float32-ctor' );
+var ccopy = require( '@stdlib/blas-base-ccopy' );
+var zeros = require( '@stdlib/array-zeros' );
+var logEach = require( '@stdlib/console-log-each' );
+var crot = require( '@stdlib/lapack-base-crot' );
 
 function rand() {
     return new Complex64( discreteUniform( 0, 10 ), discreteUniform( -5, 5 ) );
@@ -242,11 +211,6 @@ crot( cx.length, cx, 1, cy, 1, 1.25, s );
 
 // Print the results:
 logEach( '(%s,%s) => (%s,%s)', cxc, cyc, cx, cy );
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -339,7 +303,7 @@ Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
 
 [mdn-typed-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
-[@stdlib/array/complex64]: https://github.com/stdlib-js/array-complex64/tree/umd
+[@stdlib/array/complex64]: https://github.com/stdlib-js/array-complex64
 
 </section>
 
