@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2026-05-03)
+## Unreleased (2026-05-09)
 
 <section class="commits">
 
@@ -12,6 +12,7 @@
 
 <details>
 
+-   [`f578bc5`](https://github.com/stdlib-js/stdlib/commit/f578bc5f6f1694fe79556b5dca8952475ba4e1d5) - **docs:** improve doctests for complex number typed arrays in `lapack/base/crot` [(#12021)](https://github.com/stdlib-js/stdlib/pull/12021) _(by Karan Anand)_
 -   [`143c2b8`](https://github.com/stdlib-js/stdlib/commit/143c2b82010dee7aeff548e4cfdd946fe410b8ee) - **bench:** refactor to use string interpolation in `lapack/base/crot` [(#10094)](https://github.com/stdlib-js/stdlib/pull/10094) _(by Prajjwal Bajpai)_
 
 </details>
@@ -24,8 +25,9 @@
 
 ### Contributors
 
-A total of 1 person contributed to this release. Thank you to this contributor:
+A total of 2 people contributed to this release. Thank you to the following contributors:
 
+-   Karan Anand
 -   Prajjwal Bajpai
 
 </section>
