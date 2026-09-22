@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2026-09-17)
+## Unreleased (2026-09-22)
 
 <section class="commits">
 
@@ -12,6 +12,7 @@
 
 <details>
 
+-   [`e78f04d`](https://github.com/stdlib-js/stdlib/commit/e78f04d723599f35af5b3c1bed2454d89a26d44d) - **test:** migrate `blas/base/wasm/cscal` to ULP-based assertions [(#15188)](https://github.com/stdlib-js/stdlib/pull/15188) _(by Athan Reines, Philipp Burckhardt)_
 -   [`199bb30`](https://github.com/stdlib-js/stdlib/commit/199bb30fd65e5ae83acd090f856fd0401edb8acb) - **docs:** update descriptions [(#13481)](https://github.com/stdlib-js/stdlib/pull/13481) _(by Philipp Burckhardt)_
 -   [`f578bc5`](https://github.com/stdlib-js/stdlib/commit/f578bc5f6f1694fe79556b5dca8952475ba4e1d5) - **docs:** improve doctests for complex number typed arrays in `lapack/base/crot` [(#12021)](https://github.com/stdlib-js/stdlib/pull/12021) _(by Karan Anand)_
 -   [`143c2b8`](https://github.com/stdlib-js/stdlib/commit/143c2b82010dee7aeff548e4cfdd946fe410b8ee) - **bench:** refactor to use string interpolation in `lapack/base/crot` [(#10094)](https://github.com/stdlib-js/stdlib/pull/10094) _(by Prajjwal Bajpai)_
@@ -26,8 +27,9 @@
 
 ### Contributors
 
-A total of 3 people contributed to this release. Thank you to the following contributors:
+A total of 4 people contributed to this release. Thank you to the following contributors:
 
+-   Athan Reines
 -   Karan Anand
 -   Philipp Burckhardt
 -   Prajjwal Bajpai
